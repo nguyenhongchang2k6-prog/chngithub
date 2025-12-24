@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Merry Christmas</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Star background -->
+  <canvas id="stars"></canvas>
+
+  <!-- Center neon tree -->
+  <main class="stage">
+    <svg class="tree" viewBox="0 0 600 600" aria-label="Neon Christmas Tree">
+      <defs>
+        <!-- Glow filter -->
+        <filter id="glow">
+          <feGaussianBlur stdDeviation="3.5" result="blur" />
+          <feMerge>
+            <feMergeNode in="blur"/>
+            <feMergeNode in="SourceGraphic"/>
+          </feMerge>
+        </filter>
+      </defs>
+
+      <!-- Star -->
+      <path class="neon star"
+        d="M300 52
+           L314 85 L350 85
+           L321 105 L332 140
+           L300 120 L268 140
+           L279 105 L250 85
+           L286 85 Z" />
+
+      <!-- Tree outline (stylized like your screenshot) -->
+      <path class="neon line"
+        d="M300 90
+           C330 115 345 150 328 175
+           C312 198 312 220 330 245
+           C350 275 420 300 430 330
+           C442 366 410 395 370 420
+           C340 440 330 460 338 480
+           C348 505 380 520 410 520
+           L470 520
+           C475 520 480 525 480 532
+           C480 540 475 545 468 545
+           L132 545
+           C125 545 120 540 120 532
+           C120 525 125 520 132 520
+           L190 520
+           C220 520 252 505 262 480
+           C270 460 260 440 230 420
+           C190 395 158 366 170 330
+           C180 300 250 275 270 245
+           C288 220 288 198 272 175
+           C255 150 270 115 300 90" />
+
+      <!-- Base line -->
+      <path class="neon base"
+        d="M160 545 L440 545" />
+    </svg>
+
+    <!-- Control panel (top-right) -->
+    <section class="controls">
+      <button id="toggleBtn" class="icon-btn" aria-label="Toggle music">
+        🔊
+      </button>
+
+      <input id="vol" type="range" min="0" max="1" step="0.01" value="0.7" />
+      <span id="status">Music ON</span>
+    </section>
+  </main>
+
+  <audio id="bgm" src="music.mp3" loop></audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
